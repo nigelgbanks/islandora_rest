@@ -213,7 +213,7 @@ Accept: application/json
    "mimetype": "application\/rdf+xml",
    "controlGroup": "X",
    "created": "2013-06-23T07:28:32.787Z",
-   "versionable": true
+   "versionable": true,
    "versions": []
  }]
 }
@@ -565,6 +565,5 @@ TODO
       than object ingested hooks.
 - [ ] Move DC transform logic out of XML Forms and have it use ingested/modified
       hooks instead.
-- [ ] Write Tests for SOLR end point.
 - [ ] Add support for purging previous versions of data-streams
 - [ ] Make PUT requests support multi-part form data, populate $_FILES.
