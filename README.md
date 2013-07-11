@@ -567,3 +567,4 @@ TODO
       hooks instead.
 - [ ] Add support for purging previous versions of data-streams
 - [ ] Make PUT requests support multi-part form data, populate $_FILES.
+- [ ] Investigate a making a jQuery plugin to ease interaction with REST API?
