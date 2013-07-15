@@ -566,5 +566,7 @@ TODO
 - [ ] Move DC transform logic out of XML Forms and have it use ingested/modified
       hooks instead.
 - [ ] Add support for purging previous versions of data-streams
+- [ ] Add checksum support to datastream end-points.
+- [ ] Add describe json end-point for the repository.
 - [ ] Make PUT requests support multi-part form data, populate $_FILES.
 - [ ] Investigate a making a jQuery plugin to ease interaction with REST API?
