@@ -300,7 +300,7 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
 
     // Test POST Datastream as anonymous.
     $data = array('pid' => 'test:post', 'label' => 'Test REST POST Datastream');
-    $response = $this->httpPost($path . '/NEW', $data);
+    $response = $this->httpPost($path, $data);
     $expected = array(
       'code' => 401,
       'content-type' => 'application/json; utf-8',
@@ -685,7 +685,7 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
     $this->assertFalse($object, 'Object was not created');
 
     // Test DELETE Object without the proper permissions.
-    $response = $this->httpDelete(MENU_ISLANDORA_REST_OBJECT . '/test:post');
+    $response = $this->httpDelete(MENU_ISLANDORA_REST_OBJECT . '/test:access');
     $expected = array(
       'code' => 403,
       'content-type' => 'application/json; utf-8',
@@ -715,7 +715,7 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
 
     // Test POST Datastream without the proper permissions.
     $data = array('pid' => 'test:post', 'label' => 'Test REST POST Datastream');
-    $response = $this->httpPost($path . '/NEW', $data);
+    $response = $this->httpPost($path, $data);
     $expected = array(
       'code' => 403,
       'content-type' => 'application/json; utf-8',
