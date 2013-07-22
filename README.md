@@ -127,6 +127,9 @@ Adding support for multi-part __PUT__ requests is possible but would require
 writing or using and HTTP Request parsing library as __PUT__ is not well
 supported in __PHP__.
 
+Since we don't have an HTTP Request parsing library __PUT__ requests are 
+expecting raw **application/json** content as the request body.
+
 ### Documentation Key
 {variable} Required Parameter.
 
@@ -233,7 +236,7 @@ POST
 #### Headers
 Accept: application/json
 
-#### POST Parameters
+#### POST (form-data)
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object, if not given the namespace will be used to create a new one (optional).
@@ -256,12 +259,15 @@ PUT
 #### Headers
 Accept: application/json
 
+Content-Type: application/json
+
 #### Get Variables
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object, if not given the namespace will be used to create a new one.
 
-#### Request Body Variables
+#### Request Body (raw)
+##### Content-Type: application/json
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | label         | The new label of the object (optional)
@@ -288,9 +294,6 @@ islandora/rest/v1/object/{pid}
 
 #### HTTP Method
 DELETE
-
-#### Headers
-Accept: application/json
 
 ##### Get Variables
 | Name          | Description                                                  |
@@ -361,7 +364,7 @@ Accept: application/json
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object.
 
-#### Post Variables
+#### Post (form-data)
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | uri           | The predicate URI for the given predicate
@@ -381,12 +384,16 @@ islandora/rest/v1/object/{pid}/relationship
 #### HTTP Method
 DELETE
 
+#### Headers
+Content-Type: application/json
+
 #### Get Variables
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object.
 
-#### Request Body Variables
+#### Request Body (raw)
+##### Content-Type: application/json
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | uri           | The uri of the predicate, required if predicate is present.
@@ -472,7 +479,7 @@ Accept: application/json
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object to add the datastream to.
 
-#### Post Variables
+#### Post (form-data)
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | dsid          | The new datastream's persistent identifier
@@ -498,13 +505,16 @@ PUT
 #### Headers
 Accept: application/json
 
+Content-Type: application/json
+
 #### Get Variables
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | pid           | Persistent identifier of the object to add the datastream to.
 | dsid          | The persistent datastream identifier.
 
-#### Request Body Variables
+#### Request Body (raw)
+##### Content-Type: application/json
 | Name          | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
 | label         | The datastream's new label (optional)
