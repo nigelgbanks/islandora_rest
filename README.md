@@ -127,7 +127,7 @@ Adding support for multi-part __PUT__ requests is possible but would require
 writing or using and HTTP Request parsing library as __PUT__ is not well
 supported in __PHP__.
 
-Since we don't have an HTTP Request parsing library __PUT__ requests are 
+Since we don't have an HTTP Request parsing library __PUT__ requests are
 expecting raw **application/json** content as the request body.
 
 ### Documentation Key
@@ -216,7 +216,7 @@ Accept: application/json
    "label": "Fedora Object to Object Relationship Metadata.",
    "state": "A",
    "size": 1173,
-   "mimetype": "application\/rdf+xml",
+   "mimeType": "application\/rdf+xml",
    "controlGroup": "X",
    "created": "2013-06-23T07:28:32.787Z",
    "versionable": true,
@@ -433,7 +433,7 @@ version of the data stream, these values are limited to a subset described here.
 | label         | The datastream's label
 | size          | The datastream's size in bytes
 | state         | The datastream’s state, either “A”, “I”, “D”
-| mimetype      | The datastream’s mimetype
+| mimeType      | The datastream’s MIME Type
 | controlGroup  | The datastream's control group, either X, M, E, R
 | versionable   | A boolean value if the datastream is versionable
 | created       | Created date of the datastream, yyyy-MM-ddTHH:mm:ssZ
@@ -446,7 +446,7 @@ version of the data stream, these values are limited to a subset described here.
   "label": "Fedora Object to Object Relationship Metadata.",
   "state": "A",
   "size": 1173,
-  "mimetype": "application\/rdf+xml",
+  "mimeType": "application\/rdf+xml",
   "controlGroup": "X",
   "created": "2013-06-23T07:28:32.787Z",
   "versionable": true,
@@ -454,7 +454,7 @@ version of the data stream, these values are limited to a subset described here.
     "label": "Old Label.",
     "state": "A",
     "size": "1000",
-    "mimetype": "application\/rdf+xml",
+    "mimeType": "application\/rdf+xml",
     "controlGroup": "X",
     "created": "2013-05-23T06:26:32.787Z"
   }]
@@ -485,7 +485,7 @@ Accept: application/json
 | dsid          | The new datastream's persistent identifier
 | label         | The new datastream's label (optional)
 | state         | The new datastream’s state, either “A”, “I”, “D” (optional) Defaults to “A”
-| mimetype      | The new datastream’s mime type (optional) if not provided then it is guessed from the uploaded file.
+| mimeType      | The new datastream’s MIME Type (optional) if not provided then it is guessed from the uploaded file.
 | controlGroup  | The new datastream's control group, either X, M, E, R
 | versionable   | A boolean value if the datastream is versionable (optional) Defaults to true
 | multipart file as request content | File to use as the datastream’s content
@@ -519,7 +519,7 @@ Content-Type: application/json
 | ------------- | ------------------------------------------------------------ |
 | label         | The datastream's new label (optional)
 | state         | The datastream’s new state, either “A”, “I”, “D” (optional)
-| mimetype      | The new datastream’s mime type (optional) if not provided then it is guessed from the uploaded file.
+| mimeType      | The new datastream’s MIME Type (optional) if not provided then it is guessed from the uploaded file.
 | versionable   | A boolean value if the datastream is versionable (optional) Defaults to true
 | multipart file as request content | File to replace existing datastream (for Managed datastreams)
 

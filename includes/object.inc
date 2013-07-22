@@ -26,7 +26,7 @@
  *     - label: The datastream's label.
  *     - state: The datastream's state.
  *     - size: The datastream's size in bytes.
- *     - mimetype: The datastream's mimetype.
+ *     - mimeType: The datastream's MIME Type.
  *     - controlGroup: The datastream's control group, either X, M, E, R.
  *     - created: The datastream's created date.
  *     - versionable: A boolean value if the datastream is versionable.
@@ -34,7 +34,7 @@
  *       - label: The datastream's label.
  *       - state: The datastream's state.
  *       - size: The datastream's size in bytes.
- *       - mimetype: The datastream's mimetype.
+ *       - mimeType: The datastream's MIME Type.
  *       - controlGroup: The datastream's control group, either X, M, E, R.
  *       - created: The datastream's created date.
  */

@@ -22,7 +22,7 @@
  *   - label: The datastream's label.
  *   - state: The datastream's state.
  *   - size: The datastream's size in bytes.
- *   - mimetype: The datastream's mimetype.
+ *   - mimeType: The datastream's MIME Type.
  *   - controlGroup: The datastream's control group, either X, M, E, R.
  *   - created: The datastream's created date.
  *   - versionable: A boolean value if the datastream is versionable.
@@ -30,7 +30,7 @@
  *     - label: The datastream's label.
  *     - state: The datastream's state.
  *     - size: The datastream's size in bytes.
- *     - mimetype: The datastream's mimetype.
+ *     - mimeType: The datastream's MIME Type.
  *     - controlGroup: The datastream's control group, either X, M, E, R.
  *     - created: The datastream's created date.
  */
@@ -66,7 +66,7 @@ function islandora_rest_datastream_get_response(array $parameters) {
  *   - request: The request parameters.
  *     - label: The datastream's label.
  *     - state: The datastream's state.
- *     - mimetype: The datastream's mimetype.
+ *     - mimeType: The datastream's MIME Type.
  *     - versionable: Turn versioning on/off.
  */
 function islandora_rest_datastream_put_response(array $parameters) {
@@ -114,7 +114,7 @@ function islandora_rest_datastream_put_response(array $parameters) {
  *     - label: The new datastream's label, the file name will be used if none
  *       is provided (optional).
  *     - state: The new datastream's state (optional).
- *     - mimetype: The new datastream's mimetype, the mimetype of the uploaded
+ *     - mimeType: The new datastream's MIME Type, the MIME Type of the uploaded
  *       file will be used if not provided (optional).
  *     - versionable: If the datastream will be versionable, defaults to TRUE
  *       (optional).
@@ -215,7 +215,7 @@ function islandora_rest_get_datastream_properties(AbstractDatastream $datastream
     'label' => $datastream->label,
     'state' => $datastream->state,
     'size' => (int) $datastream->size,
-    'mimetype' => $datastream->mimetype,
+    'mimeType' => $datastream->mimetype,
     'controlGroup' => $datastream->controlGroup,
     'created' => (string) $datastream->createdDate,
     'versionable' => $datastream->versionable,
@@ -237,7 +237,7 @@ function islandora_rest_get_datastream_version_properties(AbstractDatastream $da
     'label' => $datastream->label,
     'state' => $datastream->state,
     'size' => (int) $datastream->size,
-    'mimetype' => $datastream->mimetype,
+    'mimeType' => $datastream->mimetype,
     'controlGroup' => $datastream->controlGroup,
     'created' => (string) $datastream->createdDate,
   );
