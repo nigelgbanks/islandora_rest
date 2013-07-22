@@ -504,6 +504,34 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
     );
     $this->validateResponse($response, $expected);
 
+    // Test PUT Datastream toggle versioning off.
+    $data = array(
+      'versionable' => FALSE,
+    );
+    $response = $this->httpPut($path . '/MODS', $data);
+    $expected = array(
+      'code' => 200,
+      'content-type' => 'application/json; utf-8',
+      'response' => $this->mockDatastreamGetResponse('test:access', 'MODS'),
+    );
+    $this->validateResponse($response, $expected);
+    $object = islandora_object_load('test:access');
+    $this->assertFalse($object['MODS']->versionable, 'Datastream versioning was turned off.');
+
+    // Test PUT Datastream toggle versioning on.
+    $data = array(
+      'versionable' => TRUE,
+    );
+    $response = $this->httpPut($path . '/MODS', $data);
+    $expected = array(
+      'code' => 200,
+      'content-type' => 'application/json; utf-8',
+      'response' => $this->mockDatastreamGetResponse('test:access', 'MODS'),
+    );
+    $this->validateResponse($response, $expected);
+    $object = islandora_object_load('test:access');
+    $this->assertTrue($object['MODS']->versionable, 'Datastream versioning was turned off.');
+
     // Test PUT Datastream Content & Properties with the proper permissions.
     // Mock the request via POST.
     $data = array(
@@ -561,6 +589,7 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
     $data = array(
       'dsid' => 'NEW',
       'label' => 'Test REST POST Datastream',
+      'versionable' => FALSE,
       'file' => '@' . dirname(__FILE__) . '/fixtures/new_datastream.xml',
     );
     $response = $this->httpPost($path, $data);
@@ -572,6 +601,7 @@ class IslandoraRestTestCase extends IslandoraHttpRestTestCase {
     $this->validateResponse($response, $expected);
     $object = islandora_object_load('test:access');
     $this->assertTrue(isset($object['NEW']), 'Datastream was created');
+    $this->assertFalse($object['NEW']->versionable, 'Datastream was created without versioning.');
 
     // Test DELETE Datastream with the proper permissions.
     $response = $this->httpDelete($path . '/NEW');

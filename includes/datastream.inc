@@ -87,7 +87,7 @@ function islandora_rest_datastream_put_response(array $parameters) {
     $datastream->state = $request['state'];
   }
   if (isset($request['versionable'])) {
-    $datastream->versionable = $request['versionable'];
+    $datastream->versionable = (bool) $request['versionable'];
   }
   if (isset($request['mimeType'])) {
     $datastream->mimetype = $request['mimeType'];
@@ -136,7 +136,7 @@ function islandora_rest_datastream_post_response(array $parameters) {
   $datastream = $object->constructDatastream($request['dsid'], $control_group);
   $datastream->state = isset($request['state']) ? $request['state'] : 'A';
   $datastream->label = isset($request['label']) ? $request['label'] : $file['name'];
-  $datastream->versionable = isset($request['versionable']) ? $request['versionable'] : TRUE;
+  $datastream->versionable = isset($request['versionable']) ? (bool) $request['versionable'] : TRUE;
   $datastream->mimetype = isset($request['mimeType']) ? $request['mimeType'] : $mime_detect->getMimetype($file['name']);
   $datastream->setContentFromFile($file['tmp_name']);
   if (!$object->ingestDatastream($datastream)) {
@@ -218,7 +218,7 @@ function islandora_rest_get_datastream_properties(AbstractDatastream $datastream
     'mimeType' => $datastream->mimetype,
     'controlGroup' => $datastream->controlGroup,
     'created' => (string) $datastream->createdDate,
-    'versionable' => $datastream->versionable,
+    'versionable' => (bool) $datastream->versionable,
     'versions' => $versions,
   );
 }
